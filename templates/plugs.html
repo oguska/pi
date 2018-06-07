@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Plugs</title>
+	<meta charset='utf-8' >
+	     <link href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" rel="stylesheet">
+     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/ bootstrap-responsive.min.css" rel="stylesheet">
+     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+     <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+     <style>
+	     .tabs {
+          width:100%;
+          display:inline-block;
+          }
+
+li {
+     display: inline-block;
+     border: 2px solid black;
+     background-color: #AED7FF;
+     text-align:center;
+     position:relative;
+     top:20px;
+     
+   }
+h4,p{
+	display: inline;
+}
+   
+   .tab-links a{
+     text-decoration:none;
+    } 
+   .plugsl {
+     border-radius: 50px 10px 50px 10px;
+     padding-top:10px;
+     padding-bottom:10px;
+     padding-left:30px;
+     padding-right:30px;
+     background-color: #5DB2FF;
+  }
+  
+  .plugs {
+     position:relative;
+     left:38px;
+     top:10px;
+	 right:38px;
+   }
+	 </style>
+</head>
+<body>
+   <ul>
+    	<li><a style="color:#125699" href="/home">Home</a></li>
+   </ul>
+    <div class="tabs">
+	    <div class="tab-links">
+        <ul>
+    	   <li class="plugsl"><a style="color:#125699" href="#pluga">Plug A</a></li>
+    	   <li class="plugsl"><a style="color:#125699" href="#plugb">Plug B</a></li>
+           <li class="plugsl"><a style="color:#125699" href="#plugc">Plug C</a></li>
+           <li class="plugsl"><a style="color:#125699" href="#plugd">Plug C</a></li>
+        </ul>
+		</div>
+    </div>
+
+    <div class="plugs">
+    <div id="pluga">
+   
+	<fieldset>
+			<legend>  <h3>Plug A</h3></legend>
+        <div id="einfoa" class="einfo">
+                <div class="status">
+                    <p>
+                        Plug Status: <h4 style="color:red;"> {{a}} </h4> 
+                    </p>
+                </div>
+        </div>
+        <div class="control">
+            <form action="/plugs/control" method="post" id="ctrlpa" name="controlpa">
+				<input type="hidden" name="plug" value="a" form="ctrlpa"></input>
+                <input required type="radio" name="turn" value="on" >Turn <strong>ON</strong>
+                <br>
+                <input required type="radio" name="turn" value="off" >Turn <strong>OFF</strong>
+                <br><br>
+                 <button type="submit" form="ctrlpa">Done!</button>
+            </form>
+	    </div>
+	<hr>
+    <div id="pluga">
+   
+
+	<div id="rule">
+    <h5>Assign a Rule</h5>
+            <form action="/plugs/rule" method="post" id="rlpa" name="rulepa">
+		<input type="hidden" name="plug" value="a" form="rlpa">
+                <select required name="turn">
+                <option disabled selected>Select a situation</option>
+                <option value="on">ON</option>
+                <option value="off">OFF</option>
+                </select>
+                for
+                <input required type="text" name="number" placeholder="Enter a number" maxlength="2" size="15" />
+                <select required name="smh">
+                    <option disabled selected>Minute/Hour</option>
+                    <option value="minute">Minute</option>
+                    <option value="hour">Hour</option>
+                </select>
+		Then
+				<select required name="then">
+					<option disabled selected>Then</option>
+					<option value="on">ON</option>
+					<option value="off">OFF</option>
+				</select>
+				<button type="submit" form="rlpa">Set Rule!</button>
+            </form>
+    </div>
+	<hr>
+		</fieldset>
+	</div>
+	
+	<br>
+    <div id="plugb">
+    <fieldset>
+			<legend>  <h3>Plug B</h3></legend>
+        <div id="einfob" class="einfo">
+                <div class="status">
+                    <p>
+                        Plug Status:<h4 style="color:red;"> {{b}} </h4> 
+                    </p>
+                </div>
+        </div>
+        <div class="control">
+            <form action="/plugs/control" id="ctrlpb" name="controlpb" method="post">
+		<input type="hidden" name="plug" value="b" form="ctrlpb" />
+                <input required type="radio" name="turn" value="on" >Turn <strong>ON</strong>
+                <br>
+                <input required type="radio" name="turn" value="off" >Turn <strong>OFF</strong>
+                <br><br>
+                <button type="submit" form="ctrlpb">Done!</button>
+            </form>
+		</div>
+            <hr>
+         <div id="rule">
+    <h5>Assign a Rule</h5>
+            <form action="/plugs/rule" method="post" id="rlpb" name="rulepb">
+			    <input type="hidden" name="plug" value="b" form="rlpb" >
+                <select required name="turn">
+                        <option disabled selected>Select a situation</option>
+                        <option value="on">ON</option>
+                        <option value="off">OFF</option>
+                </select>
+                for
+                <input required type="text" name="number" placeholder="Enter a number" maxlength="2" size="15" />
+                <select required name="smh">
+                    <option disabled selected>Minute/Hour</option>
+                    <option value="minute">Minute</option>
+                    <option value="hour">Hour</option>
+                </select>
+		Then
+				<select required name="then">
+					<option disabled selected>Then</option>
+					<option value="on">ON</option>
+					<option value="off">OFF</option>
+				</select>
+				<button type="submit" form="rlpb">Set Rule!</button>
+            </form>
+    </div>
+	<hr>
+		</fieldset>
+    </div>
+	<br>
+    <div id="plugc">
+    <fieldset>
+			<legend>  <h3>Plug C</h3></legend>
+        <div id="einfoc" class="einfo">
+                <div class="status">
+                    <p>
+                        Plug Status:<h4 style="color:red;"> {{c}} </h4> 
+                    </p>
+                </div>
+        </div>
+        <div class="control">
+            <form action="/plugs/control" id="ctrlpc" name="controlpc" method="post">
+				<input type="hidden" name="plug" value="c" form="ctrlpc" />
+                <input required type="radio" name="turn" value="on" form="ctrlpc">Turn <strong>ON</strong>
+                <br>
+                <input required type="radio" name="turn" value="off" form="ctrlpc">Turn <strong>OFF</strong>
+                <br><br>
+                <button type="submit" form="ctrlpc">Done!</button>
+            </form>
+		</div>
+        <hr>
+		<div id="rule">
+    <h5>Assign a Rule</h5>
+            <form action="/plugs/rule" id="rlpc" name="rulepc" method="post">
+		<input type="hidden" name="plug" value="c" form="rlpc" >
+                <select required name="turn">
+                        <option disabled selected>Select a situation</option>
+                        <option value="on">ON</option>
+                        <option value="off">OFF</option>
+                </select>
+                for
+                <input required type="text" name="number" placeholder="Enter a number" maxlength="2" size="15" />
+                <select required name="smh">
+                    <option disabled selected>Minute/Hour</option>
+                    <option value="minute">Minute</option>
+                    <option value="hour">Hour</option>
+                </select>
+		Then
+				<select required name="then">
+					<option disabled selected>Then</option>
+					<option value="on">ON</option>
+					<option value="of">OFF</option>
+				</select>
+				<button type="submit" form="rlpc">Set Rule!</button>
+            </form>
+    </div>
+	<hr>
+		</fieldset>
+    </div>
+    <br>
+    <div id="plugd">
+    <fieldset>
+			<legend>  <h3>Plug D</h3></legend>
+        <div id="einfod" class="einfo">
+                <div class="status">
+                    <p>
+                        Plug Status:<h4 style="color:red;"> {{d}} </h4> 
+                    </p>
+                </div>
+        </div>
+        <div class="control">
+            <form action="/plugs/control" id="ctrlpd" name="controlpd" method="post">
+				<input type="hidden" name="plug" value="d" form="ctrlpd" />
+                <input required type="radio" name="turn" value="on" form="ctrlpd">Turn <strong>ON</strong>
+                <br>
+                <input required type="radio" name="turn" value="off" form="ctrlpd">Turn <strong>OFF</strong>
+                <br><br>
+                <button type="submit" form="ctrlpd">Done!</button>
+            </form>
+		</div>
+        <hr>
+		<div id="rule">
+    <h5>Assign a Rule</h5>
+            <form action="/plugs/rule" id="rlpd" name="rulepd" method="post">
+		<input type="hidden" name="plug" value="d" form="rlpd" >
+                <select required name="turn">
+                        <option disabled selected>Select a situation</option>
+                        <option value="on">ON</option>
+                        <option value="off">OFF</option>
+                </select>
+                for
+                <input required type="text" name="number" placeholder="Enter a number" maxlength="2" size="15" />
+                <select required name="smh">
+                    <option disabled selected>Minute/Hour</option>
+                    <option value="minute">Minute</option>
+                    <option value="hour">Hour</option>
+                </select>
+		Then
+				<select required name="then">
+					<option disabled selected>Then</option>
+					<option value="on">ON</option>
+					<option value="of">OFF</option>
+				</select>
+				<button type="submit" form="rlpd">Set Rule!</button>
+            </form>
+    </div>
+	<hr>
+		</fieldset>
+    </div>
+    </div>
+
+</body>
+</html>
